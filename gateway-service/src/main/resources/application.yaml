@@ -1,0 +1,41 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active: dev
+  config:
+    import:
+      - nacos:shared-log.yaml?group=DEFAULT_GROUP&refreshEnable=true
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: 123456
+    sentinel:
+      transport:
+        dashboard: localhost:19090
+      http-method-specify: true
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: demo
+              uri: lb://demo-service
+              predicates:
+                - Path=/demo/**
+            - id: user
+              uri: lb://user-service
+              predicates:
+                - Path=/user/**
+aapo:
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+  auth:
+    exclude-paths:
+      - /demo/**
+      - /user/login

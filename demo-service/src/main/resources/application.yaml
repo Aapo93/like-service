@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: demo-service
+  profiles:
+    active: dev
+  config:
+    import:
+      - nacos:shared-log.yaml?group=DEFAULT_GROUP&refreshEnable=true
+      - nacos:shared-jdbc.yaml?group=DEFAULT_GROUP
+      - nacos:shared-openfeign.yaml?group=DEFAULT_GROUP
+      - nacos:demo-service.yaml?group=DEFAULT_GROUP&refreshEnable=true
+      - nacos:shared-seata.yaml?group=DEFAULT_GROUP
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: 123456
+    sentinel:
+      transport:
+        dashboard: localhost:19090
+      http-method-specify: true
