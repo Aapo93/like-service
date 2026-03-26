@@ -17,18 +17,6 @@ spring:
       transport:
         dashboard: localhost:19090
       http-method-specify: true
-    gateway:
-      server:
-        webflux:
-          routes:
-            - id: demo
-              uri: lb://demo-service
-              predicates:
-                - Path=/demo/**
-            - id: user
-              uri: lb://user-service
-              predicates:
-                - Path=/user/**
 aapo:
   jwt:
     location: classpath:hmall.jks
