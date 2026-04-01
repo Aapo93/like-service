@@ -13,6 +13,10 @@ spring:
       server-addr: localhost:8848
       username: nacos
       password: 123456
+      config:
+        namespace: resource-like
+      discovery:
+        namespace: resource-like
     sentinel:
       transport:
         dashboard: localhost:19090
@@ -25,5 +29,4 @@ aapo:
     tokenTTL: 30m
   auth:
     exclude-paths:
-      - /demo/**
       - /user/login

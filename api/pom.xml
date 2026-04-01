@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.aapo</groupId>
-        <artifactId>like-service</artifactId>
+        <artifactId>resource-like-service</artifactId>
         <version>1.0.0</version>
     </parent>
     <groupId>com.aapo</groupId>

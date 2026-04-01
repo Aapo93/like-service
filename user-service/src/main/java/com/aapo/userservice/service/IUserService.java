@@ -13,10 +13,4 @@ public interface IUserService extends IService<User> {
      * @return
      */
     UserLoginVO login(LoginFormDTO loginFormDTO);
-
-    /**
-     * 修改手机号码
-     * @param phone
-     */
-    void updatePhone(String phone);
 }

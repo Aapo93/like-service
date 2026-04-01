@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.aapo</groupId>
-        <artifactId>like-service</artifactId>
+        <artifactId>resource-like-service</artifactId>
         <version>1.0.0</version>
     </parent>
     <groupId>com.aapo</groupId>
@@ -75,6 +75,12 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
             <scope>provided</scope>
         </dependency>
         <!--接口文档（有冲突）-->

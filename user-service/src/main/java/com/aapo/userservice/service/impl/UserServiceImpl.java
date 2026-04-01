@@ -1,10 +1,7 @@
 package com.aapo.userservice.service.impl;
 
-import com.aapo.api.client.DemoClient;
 import com.aapo.common.exception.BadRequestException;
-import com.aapo.common.exception.BizIllegalException;
 import com.aapo.common.exception.ForbiddenException;
-import com.aapo.common.utils.UserContext;
 import com.aapo.userservice.config.JwtProperties;
 import com.aapo.userservice.domain.dto.LoginFormDTO;
 import com.aapo.userservice.domain.po.User;
@@ -14,12 +11,9 @@ import com.aapo.userservice.mapper.UserMapper;
 import com.aapo.userservice.service.IUserService;
 import com.aapo.userservice.utils.JwtTool;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
-import org.apache.seata.spring.annotation.GlobalTransactional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.util.UUID;
@@ -33,8 +27,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private final JwtTool jwtTool;
 
     private final JwtProperties jwtProperties;
-
-    private final DemoClient demoClient;
 
     @Override
     public UserLoginVO login(LoginFormDTO loginFormDTO) {
@@ -60,17 +52,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         vo.setUsername(user.getUsername());
         vo.setToken(token);
         return vo;
-    }
-
-    @Override
-    @GlobalTransactional
-    public void updatePhone(String phone) {
-        if (StringUtils.isBlank(phone)) {
-            return;
-        }
-        System.out.println(UserContext.getUser());
-        lambdaUpdate().set(User::getPhone, phone).eq(User::getId, UserContext.getUser()).update();
-        demoClient.demoUpdateTxt(1L, UUID.randomUUID().toString());
-        throw new BizIllegalException("分布式事务模拟异常");
     }
 }

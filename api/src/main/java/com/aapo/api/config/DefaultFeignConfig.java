@@ -1,6 +1,5 @@
 package com.aapo.api.config;
 
-import com.aapo.api.client.fallback.DemoClientFallbackFactory;
 import com.aapo.common.utils.UserContext;
 import feign.Logger;
 import feign.RequestInterceptor;
@@ -22,10 +21,5 @@ public class DefaultFeignConfig {
                 requestTemplate.header("user-info", userId.toString());
             }
         };
-    }
-
-    @Bean
-    public DemoClientFallbackFactory demoClientFallbackFactory() {
-        return new DemoClientFallbackFactory();
     }
 }

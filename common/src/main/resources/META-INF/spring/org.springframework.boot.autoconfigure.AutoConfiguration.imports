@@ -2,3 +2,4 @@ com.aapo.common.config.MvcConfig
 com.aapo.common.config.MyBatisConfig
 com.aapo.common.config.JsonConfig
 com.aapo.common.config.SentinelConfig
+com.aapo.common.utils.LikeUtils

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aapo.likeasynservice.mapper.LikeStatisticsMapper">
+    <select id="batchQueryByPairs" resultType="com.aapo.likeasynservice.domain.po.LikeStatistics">
+        SELECT * FROM like_statistics
+        WHERE (resource_type, resource_id) IN
+        <foreach collection="pairList" open="(" separator="," close=")" item="item">
+            (#{item.resourceType}, #{item.resourceId})
+        </foreach>
+    </select>
+</mapper>

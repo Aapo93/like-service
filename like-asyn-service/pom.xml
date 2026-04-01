@@ -6,29 +6,27 @@
         <groupId>com.aapo</groupId>
         <artifactId>resource-like-service</artifactId>
         <version>1.0.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.aapo</groupId>
-    <artifactId>user-service</artifactId>
+    <artifactId>like-asyn-service</artifactId>
     <version>1.0.0</version>
-    <name>user-service</name>
-    <description>user-service</description>
+    <name>like-asyn-service</name>
+    <description>like-asyn-service</description>
     <properties>
         <java.version>21</java.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <!--common-->
         <dependency>
             <groupId>com.aapo</groupId>
             <artifactId>common</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!--api-->
-        <dependency>
-            <groupId>com.aapo</groupId>
-            <artifactId>api</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -64,20 +62,10 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-        <!--加密-->
+        <!--redis-->
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-crypto</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-rsa</artifactId>
-            <version>1.1.5</version>
-        </dependency>
-        <!--sentinel-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

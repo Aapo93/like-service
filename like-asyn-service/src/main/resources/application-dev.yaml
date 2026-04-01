@@ -1,0 +1,9 @@
+aapo:
+  db:
+    host: localhost
+    port: 3308
+    username: root
+    password: 123456
+  timer:
+    liketask:
+      statistics: 0 0/5 * * * ? #5分钟执行一次
